@@ -450,7 +450,7 @@ class SExpBase(object):
         return cls._lisp_quoted_to_raw.get(string, string)
 
 
-def Number(SExpBase):
+class Number(SExpBase):
 
     def tosexp(self, tosexp=None):
         return self._val
