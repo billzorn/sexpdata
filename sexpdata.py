@@ -72,7 +72,7 @@ __all__ = [
     # Utility functions:
     'car', 'cdr',
     # S-expression classes:
-    'Symbol', 'String', 'Quoted',
+    'Number', 'Symbol', 'String', 'Quoted',
 ]
 
 import re
@@ -450,6 +450,11 @@ class SExpBase(object):
         return cls._lisp_quoted_to_raw.get(string, string)
 
 
+def Number(SExpBase):
+
+    def tosexp(self, tosexp=None):
+        return self._val
+
 class Symbol(SExpBase):
 
     _lisp_quoted_specials = [
@@ -608,10 +613,12 @@ class Parser(object):
         if token == self.false:
             return False
         try:
-            return int(token)
+            int(token)
+            return Number(token)
         except ValueError:
             try:
-                return float(token)
+                float(token)
+                return Number(token)
             except ValueError:
                 return Symbol(token)
 

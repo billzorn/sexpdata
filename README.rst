@@ -1,4 +1,4 @@
-S-expression parser for Python
+S-expression parser for Python (with careful handling of numbers)
 ==============================
 
 `sexpdata` is a simple S-expression parser/serializer.  It has
@@ -31,3 +31,7 @@ License
 
 `sexpdata` is licensed under the terms of the BSD 2-Clause License.
 See the source code for more information.
+
+-------
+
+Modified for carefully parsing `FPBench <https://github.com/FPBench/FPBench>`_'s FPCores.
