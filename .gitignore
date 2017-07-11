@@ -3,3 +3,4 @@ MANIFEST
 doc/build
 tmp
 benchmark/benchmarks.db
+__pycache__
